@@ -11,14 +11,14 @@ const notesRoutes = require("./routes/notes.routes");
 connectToMongo();
 
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "*", credentials: true }));
 app.use(express.json());
-app.use(express.urlencoded({extended : true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use("/api/notes", notesRoutes);
 
-app.get("/" , (req,res) =>{
+app.get("/", (req, res) => {
     res.send("hello world");
 })
 
